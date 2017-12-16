@@ -3,23 +3,9 @@ const getTeleport = {};
 
 const googleKey = "AIzaSyDVpmJDNELom9OyM38lybG-uIWytTgRbNY";
 
-/* getTeleport.userInput = function({userInput}){
-    $.ajax({
-        url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${userInput}&key=${googleKey}`,
-        method: "GET",
-        dataType: "JSONP"
-    })
-    .then(function(info){
-        console.log(info);
-    })
-} */
-
-
-
-
-
-
 $(document).ready(function(){
+
+    // autocomplete
     var defaultBounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(-90, -180),
         new google.maps.LatLng(90, 180));
@@ -30,6 +16,12 @@ $(document).ready(function(){
         types: ['(cities)'],
     };
     var autocomplete = new google.maps.places.Autocomplete(input, options);
+    // end autocomplete
 
+    $(".main-search").on("submit", function(e){
+        e.preventDefault();
+       // const input = $("#searchTextField").val();
+        console.log($("#searchTextField").val());
+    })
 
 });// end doc ready
