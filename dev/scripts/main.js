@@ -36,7 +36,7 @@ getTeleport.displayScore = function(response){
     $(".city-score").append(
         `<p>${response.summary}</p>`
     )
-    scoreArray = scoreArray.categories.filter(function(newArray){
+    scoreArray = scoreArray.categories.forEach(function(newArray){
         progress(newArray.score_out_of_10);
         $(".city-score").append(
             `<li>
