@@ -15,11 +15,11 @@ getTeleport.apiRequest = function(city){
     .fail(function(){
         alert("information not found. Please search another city");
     }) // end .fail promise
-}; // end ajax request
+}; // end ajax 
 
 // progress bar
-function progress(percentage) {
-    $('.jq').LineProgressbar({
+function progress(id, percentage) {
+    $(`#${id}`).LineProgressbar({
         percentage: percentage,
         duration: 1000,
         fillBackgroundColor: '#3498db',
@@ -36,15 +36,15 @@ getTeleport.displayScore = function(response){
     $(".city-score").append(
         `<p>${response.summary}</p>`
     )
-    scoreArray = scoreArray.categories.forEach(function(newArray){
-        progress(`${newArray.score_out_of_10}`);
+    scoreArray.categories.forEach(function (newArray, index) {
         $(".city-score").append(
-            `<li>   
+            `<li>
                 <h2>${newArray.name}</h2>
                 <p>${newArray.score_out_of_10}</p>
-                <div class="jq"></div>
+                <div id="${index}"></div>
             </li>`
         );
+        progress(index, newArray.score_out_of_10);
     });
 };
 
