@@ -10,7 +10,6 @@ getTeleport.apiRequest = function(city){
         dataTYpe: "JSON"
     })
     .then(function(response){
-        console.log(response);
         getTeleport.displayScore(response);
     })// end .then promise
     .fail(function(){
@@ -18,19 +17,34 @@ getTeleport.apiRequest = function(city){
     }) // end .fail promise
 }; // end ajax request
 
+// progress bar
+function progress(percentage) {
+    $('.jq').LineProgressbar({
+        percentage: percentage,
+        duration: 1000,
+        fillBackgroundColor: '#3498db',
+        backgroundColor: '#EEEEEE',
+        radius: '0px',
+        height: '10px',
+        width: '100%'
+    });
+};
+
+// display results on DOM
 getTeleport.displayScore = function(response){
     let scoreArray = response;
     $(".city-score").append(
         `<p>${response.summary}</p>`
     )
-    scoreArray = scoreArray.categories.map(function(newArray){
-        console.log(newArray);
+    scoreArray = scoreArray.categories.filter(function(newArray){
+        progress(newArray.score_out_of_10);
         $(".city-score").append(
             `<li>
                 <h2>${newArray.name}</h2>
                 <p>${newArray.score_out_of_10}</p>
+                <div class="jq"></div>
             </li>`
-        )
+        );
     });
 };
 
@@ -48,25 +62,26 @@ const userInput = () => {
 
 getTeleport.init=()=>{
     userInput();
+
 }; // end init
 
 
 // start document ready
 $(document).ready(function(){
-
+    
     getTeleport.init();
-
     // autocomplete
     var defaultBounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(-90, -180),
         new google.maps.LatLng(90, 180));
-    
-    var input = document.getElementById('searchTextField');
-    var options = {
-        bounds: defaultBounds,
-        types: ['(regions)'],
-    };
-    var autocomplete = new google.maps.places.Autocomplete(input, options);
-    // end autocomplete
+        
+        var input = document.getElementById('searchTextField');
+        var options = {
+            bounds: defaultBounds,
+            types: ['(regions)'],
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+        // end autocomplete
+        // bar indicator 
 
 });// end doc ready
