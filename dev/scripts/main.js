@@ -20,8 +20,17 @@ getTeleport.apiRequest = function(city){
 
 getTeleport.displayScore = function(response){
     let scoreArray = response;
+    $(".city-score").append(
+        `<p>${response.summary}</p>`
+    )
     scoreArray = scoreArray.categories.map(function(newArray){
         console.log(newArray);
+        $(".city-score").append(
+            `<li>
+                <h2>${newArray.name}</h2>
+                <p>${newArray.score_out_of_10}</p>
+            </li>`
+        )
     });
 };
 
