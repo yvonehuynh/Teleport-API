@@ -3,7 +3,6 @@ const getTeleport = {};
 const googleKey = "AIzaSyDVpmJDNELom9OyM38lybG-uIWytTgRbNY";
 
 // get AJAX request based on User's location
-
 getTeleport.apiRequest = function(city){
     $.ajax({
         url: `https://api.teleport.org/api/urban_areas/slug:${city}/scores/`,
@@ -12,24 +11,38 @@ getTeleport.apiRequest = function(city){
     })
     .then(function(response){
         console.log(response);
+        getTeleport.displayScore(response);
+    })// end .then promise
+    .fail(function(){
+        alert("information not found. Please search another city");
+    }) // end .fail promise
+}; // end ajax request
+
+getTeleport.displayScore = function(response){
+    let scoreArray = response;
+    scoreArray = scoreArray.categories.map(function(newArray){
+        console.log(newArray);
     });
 };
 
+// function to initialize api request via user input
 const userInput = () => {
     // when form submits, get the value of input up to the first comma
     $(".main-search").on("submit", function (e) {
         e.preventDefault();
         let city = $("#searchTextField").val();
-        city = city.substring(0, city.indexOf(",")).toLowerCase();
+        city = city.substring(0, city.indexOf(",")).toLowerCase().replace(/ /, "-");
         console.log(city);
         getTeleport.apiRequest(city);
     });
-};
+}; // end userInput funciton
 
 getTeleport.init=()=>{
     userInput();
-};
+}; // end init
 
+
+// start document ready
 $(document).ready(function(){
 
     getTeleport.init();
