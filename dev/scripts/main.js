@@ -41,6 +41,18 @@ function progress(id, percentage) {
     });
 };
 
+// progress bar
+function progressCompare(id, percentage) {
+    $(`#${id}`).LineProgressbar({
+        percentage: percentage * 10,
+        duration: 1000,
+        fillBackgroundColor: '#000',
+        backgroundColor: '#EEEEEE',
+        radius: '0px',
+        height: '10px',
+        width: '100%'
+    });
+};
 // display results on DOM
 getTeleport.displayScore = function(response){
     let scoreArray = response;
@@ -72,7 +84,7 @@ getTeleport.displaySecondScore = function (secondResponse) {
                 <div id="${index}"></div>
             </li>`
         );
-        progress(index, newArray.score_out_of_10);
+        progressCompare(index, newArray.score_out_of_10);
     });
 };
 
