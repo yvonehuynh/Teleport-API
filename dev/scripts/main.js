@@ -163,8 +163,9 @@ $(document).ready(function(){
         });
         $(".info-container").css({
             display: "flex",
-            "flex-direction": "row",
+            "flex-direction": "row-reverse",
             "justify-content": "space-between"
         });
+        window.scrollTo(0, 0);
     });
 });// end doc ready
