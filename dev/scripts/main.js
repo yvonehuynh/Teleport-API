@@ -2,8 +2,8 @@ const getTeleport = {};
 
 const googleKey = "AIzaSyDVpmJDNELom9OyM38lybG-uIWytTgRbNY";
 
-function getWidget(city){
-    $(".score2").append(
+function getWidget(elementClass, city){
+    $(`${elementClass}`).append(
         `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Job salary calculator - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/salaries/?currency=USD" data-max-width="770" data-height="708" src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`
     );
 };
@@ -17,6 +17,7 @@ getTeleport.apiRequest = function(city){
     })
     .then(function(response){
         getTeleport.displayScore(response);
+        getWidget(".city-score", city);
     })// end .then promise
     .fail(function(){
         alert("information not found. Please search another city");
@@ -32,7 +33,7 @@ getTeleport.secondApiRequest = function(compareCity) {
     .then(function(secondResponse){
         console.log(secondResponse);
         getTeleport.displaySecondScore(secondResponse);
-        getWidget(compareCity);
+        getWidget(".score2", compareCity);
     });
 };
 // progress bar
