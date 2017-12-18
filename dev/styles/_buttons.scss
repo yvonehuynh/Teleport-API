@@ -1,0 +1,22 @@
+
+
+.refresh-link-container a {
+    display: inline-block;
+    text-align: center;
+}
+
+.compare-link-container button, .refresh-link-container a, input[type=submit] {
+    border: 1px solid white;
+    color: white;
+    background: orange;
+    font-size: 1.8rem;
+    padding: 5px 45px;
+    text-transform: uppercase;
+    min-width: 30%;
+    font-weight: bold;
+}
+
+.link-container {
+    display: flex;
+    justify-content: space-around;
+}

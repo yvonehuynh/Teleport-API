@@ -1,6 +1,7 @@
 @import "setup";
 @import "aside-styles";
 @import "form";
+@import "buttons";
 
 // general styles
 
@@ -27,4 +28,21 @@ h1 {
     color: white;
     text-transform: uppercase;
     text-align: center;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+p {
+    font-size: 1.8rem;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a:visited {
+    color: white;
 }

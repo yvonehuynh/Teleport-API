@@ -78,6 +78,8 @@ getTeleport.displayScore = function(response){
         );
         progress(index, newArray.score_out_of_10);
     });
+    $(".refresh-link-container").show();
+    $(".compare-link-container").show();
 };
 
 getTeleport.displaySecondScore = function (secondResponse) {
@@ -146,6 +148,8 @@ getTeleport.init=()=>{
     $("#first-aside").css({
         display: "none"
     });
+    $(".refresh-link-container").hide();
+    $(".compare-link-container").hide();
 }; // end init
 
 
@@ -167,5 +171,10 @@ $(document).ready(function(){
             "justify-content": "space-between"
         });
         window.scrollTo(0, 0);
+        $(".compare-link-container").hide();
     });
+    $(".refresh-link-container a").on("click", function(e){
+        e.preventDefault();
+        window.location.reload(false); 
+    })
 });// end doc ready
