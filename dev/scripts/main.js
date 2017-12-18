@@ -2,6 +2,12 @@ const getTeleport = {};
 
 const googleKey = "AIzaSyDVpmJDNELom9OyM38lybG-uIWytTgRbNY";
 
+function getWidget(city){
+    $(".score2").append(
+        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Job salary calculator - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/salaries/?currency=USD" data-max-width="770" data-height="708" src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`
+    );
+};
+
 // get AJAX request based on User's location
 getTeleport.apiRequest = function(city){
     $.ajax({
@@ -26,6 +32,7 @@ getTeleport.secondApiRequest = function(compareCity) {
     .then(function(secondResponse){
         console.log(secondResponse);
         getTeleport.displaySecondScore(secondResponse);
+        getWidget(compareCity);
     });
 };
 // progress bar
@@ -77,6 +84,7 @@ getTeleport.displaySecondScore = function (secondResponse) {
         `<p>${secondResponse.summary}</p>`
     );
     scoreArray.categories.forEach(function (newArray, index) {
+        console.log(newArray);
         $(".score2").append(
             `<li>
                 <h2>${newArray.name}</h2>
@@ -87,18 +95,6 @@ getTeleport.displaySecondScore = function (secondResponse) {
         progressCompare(index, newArray.score_out_of_10);
     });
 };
-
-// function to initialize api request via user input
-/* const userInput = () => {
-    // when form submits, get the value of input up to the first comma
-    $(".main-search").on("submit", function (e) {
-        e.preventDefault();
-        let city = $("#searchTextField").val();
-        city = city.substring(0, city.indexOf(",")).toLowerCase().replace(/ /, "-");
-        console.log(city);
-        getTeleport.apiRequest(city);
-    });
-};  */// end userInput funciton
 
 const userInput = (form, input) => {
     // when form submits, get the value of input up to the first comma
@@ -138,9 +134,9 @@ function autocompleteInput(inputId){
         // end autocomplete
 }
 
+
+
 getTeleport.init=()=>{
-/*     userInput(".main-search", "#searchTextField");
-    userInput(".second-search", "#secondTextField"); */
     userInput();
     secondUserInput();
     autocompleteInput("searchTextField");
