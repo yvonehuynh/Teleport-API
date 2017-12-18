@@ -143,6 +143,9 @@ getTeleport.init=()=>{
     secondUserInput();
     autocompleteInput("searchTextField");
     autocompleteInput("secondTextField");
+    $("#first-aside").css({
+        display: "none"
+    });
 }; // end init
 
 
@@ -150,5 +153,18 @@ getTeleport.init=()=>{
 $(document).ready(function(){
     
     getTeleport.init();
-
+    $(".compare-link").on("click", function(e){
+        e.preventDefault();
+        $("#first-aside").css({
+            display: "block"
+        });
+        $(".aside").css({
+            width: "48%"
+        });
+        $(".info-container").css({
+            display: "flex",
+            "flex-direction": "row",
+            "justify-content": "space-between"
+        });
+    });
 });// end doc ready
