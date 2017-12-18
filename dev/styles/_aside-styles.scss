@@ -1,0 +1,16 @@
+.info-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.aside {
+    width: 49%;
+}
+
+.city-score, .score2 {
+    background: white;
+    padding: 0;
+    li, p {
+        padding: 10px 20px;
+    }
+}

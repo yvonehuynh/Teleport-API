@@ -4,8 +4,8 @@ const googleKey = "AIzaSyDVpmJDNELom9OyM38lybG-uIWytTgRbNY";
 
 function getWidget(elementClass, city){
     $(`${elementClass}`).append(
-        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Job salary calculator - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/salaries/?currency=USD" data-max-width="770" data-height="708" src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`,
-        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Costs of living - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/costs/?currency=USD" data-max-width="770" data-height="952" src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`
+        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Job salary calculator - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/salaries/?currency=USD" src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`,
+        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Costs of living - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/costs/?currency=USD"  src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`
     );
 };
 
