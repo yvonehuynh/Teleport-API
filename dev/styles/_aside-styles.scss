@@ -30,3 +30,23 @@ iframe {
     min-height: 670px;
     max-height: 800px;
 }
+
+.info-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.sub-info-container {
+    margin: 1%;
+}
+
+.aside {
+    width: 48%;
+    margin: 1%;
+}
+
+#second-aside, #first-aside {
+    margin: 0 auto;
+    width: 90%;
+}

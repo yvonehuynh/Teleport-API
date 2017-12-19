@@ -3,10 +3,18 @@ form {
     font-size: 1.8rem;
     color: white;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: bold;  
+    width: 50%;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
     input[type=text] {
-        width: 50%;
+        width: 100%;
         margin: 0 auto;
     }
+}
+
+.main-submit {
+    width: 50%;
+    margin: 0 auto;
 }
