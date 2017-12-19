@@ -1,7 +1,10 @@
 .city-score, .score2 {
     background: white;
     padding: 0;
-    li, p {
+    li {
+        padding: 0 20px;
+    }
+    p {
         padding: 10px 20px;
     }
 }

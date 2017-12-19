@@ -9,11 +9,14 @@
     border: 1px solid white;
     color: white;
     background: orange;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.compare-link-container button, .refresh-link-container a {
     font-size: 1.8rem;
     padding: 5px 45px;
-    text-transform: uppercase;
     min-width: 30%;
-    font-weight: bold;
 }
 
 .link-container {
