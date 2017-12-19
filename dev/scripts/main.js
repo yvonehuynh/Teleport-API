@@ -4,8 +4,8 @@ const googleKey = "AIzaSyDVpmJDNELom9OyM38lybG-uIWytTgRbNY";
 
 function getWidget(elementClass, city){
     $(`${elementClass}`).append(
-        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Job salary calculator - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/salaries/?currency=USD" data-max-width="100%" src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`,
-        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Costs of living - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/costs/?currency=USD" data-max-width="100%"  src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`
+        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Job salary calculator - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/salaries/?currency=USD" data-max-width="100%" data-height: "900px" src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`,
+        `<a class="teleport-widget-link" href="https://teleport.org/cities/${city}/">Costs of living - ${city}</a><script async class="teleport-widget-script" data-url="https://teleport.org/cities/${city}/widget/costs/?currency=USD" data-max-width="100%" data-height: "900px" src="https://teleport.org/assets/firefly/widget-snippet.min.js"></script>`
     );
 };
 
@@ -66,7 +66,9 @@ function progressCompare(id, percentage) {
 getTeleport.displayScore = function(response){
     let scoreArray = response;
     $(".city-score").append(
-        `<p>${response.summary}</p>`
+        `<div class="description">
+        <p>${response.summary}</p>
+        </div>`
     )
     scoreArray.categories.forEach(function (newArray, index) {
         $(".city-score").append(
@@ -85,10 +87,11 @@ getTeleport.displayScore = function(response){
 getTeleport.displaySecondScore = function (secondResponse) {
     let scoreArray = secondResponse;
     $(".score2").append(
-        `<p>${secondResponse.summary}</p>`
+        `<div class="description">
+        <p>${secondResponse.summary}</p>
+        </div>`
     );
     scoreArray.categories.forEach(function (newArray, index) {
-        console.log(newArray);
         $(".score2").append(
             `<li>
                 <h2>${newArray.name}</h2>
