@@ -54,3 +54,15 @@
         padding: 5px 35px;
     }
 }
+
+@media only screen and (max-width: 410px) {
+    // general styles
+    h1 {
+        font-size: 4rem;
+    }
+
+    // buttons
+    .compare-link-container button, .refresh-link-container a {
+        padding: 5px 15px;
+    }
+}

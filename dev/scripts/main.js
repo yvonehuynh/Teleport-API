@@ -142,8 +142,6 @@ function autocompleteInput(inputId){
         // end autocomplete
 }
 
-
-
 getTeleport.init=()=>{
     userInput();
     secondUserInput();
@@ -163,30 +161,14 @@ $(document).ready(function(){
     getTeleport.init();
     $(".compare-link").on("click", function(e){
         e.preventDefault();
-        var smallScreen = window.matchMedia("(max-width: 620px)");
-        if (smallScreen.matches) {
-            // Screen is less than 480px
-            $(".info-container").css({
-                display: "flex",
-                "flex-direction": "column-reverse",
-            });
-        }
         $("#first-aside").css({
             display: "block"
         });
-/*         $(".aside").css({
-            width: "48%"
-        }); */
-/*         $(".info-container").css({
-            display: "flex",
-            "flex-direction": "row-reverse",
-            "justify-content": "space-between"
-        }); */
         $("form").css({
             display: "flex",
             "justify-content": "center"
         });
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 100);
         $(".compare-link-container").hide();
     });
     $(".refresh-link-container a").on("click", function(e){
