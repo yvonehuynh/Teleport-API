@@ -23,20 +23,19 @@ getTeleport.apiRequest = function(city){
     .fail(function(){
         alert("information not found. Please search another city");
     }) // end .fail promise
-}; // end ajax 
+}; // end ajax function
 
 getTeleport.secondApiRequest = function(compareCity) {
     $.ajax({
         url: `https://api.teleport.org/api/urban_areas/slug:${compareCity}/scores/`,
         method: "GET",
         dataTYpe: "JSON"
-    })
+    }) // end ajax request
     .then(function(secondResponse){
-        console.log(secondResponse);
         getTeleport.displaySecondScore(secondResponse);
         getWidget(".score2", compareCity);
-    });
-};
+    });// end .then promise
+}; // end ajax function
 // progress bar
 function progress(id, percentage) {
     $(`#${id}`).LineProgressbar({
@@ -82,6 +81,7 @@ getTeleport.displayScore = function(response){
     });
     $(".refresh-link-container").show();
     $(".compare-link-container").show();
+    $(".main-submit").hide();
 };
 
 getTeleport.displaySecondScore = function (secondResponse) {
@@ -101,6 +101,7 @@ getTeleport.displaySecondScore = function (secondResponse) {
         );
         progressCompare(index, newArray.score_out_of_10);
     });
+    $(".second-submit").hide();
 };
 
 const userInput = (form, input) => {
@@ -109,7 +110,7 @@ const userInput = (form, input) => {
         e.preventDefault();
         let city = $("#searchTextField").val();
         city = city.substring(0, city.indexOf(",")).toLowerCase().replace(/ /, "-"); 
-        console.log(city);
+        $(".main-submit").hide();
         getTeleport.apiRequest(city);
     });
 };
@@ -120,7 +121,7 @@ const secondUserInput =()=> {
         e.preventDefault();
         let city = $("#secondTextField").val();
         city = city.substring(0, city.indexOf(",")).toLowerCase().replace(/ /, "-");
-        console.log(city);
+        $(".second-submit").hide();
         getTeleport.secondApiRequest(city);
     });
 };
@@ -172,6 +173,10 @@ $(document).ready(function(){
             display: "flex",
             "flex-direction": "row-reverse",
             "justify-content": "space-between"
+        });
+        $("form").css({
+            display: "flex",
+            "justify-content": "center"
         });
         window.scrollTo(0, 0);
         $(".compare-link-container").hide();
