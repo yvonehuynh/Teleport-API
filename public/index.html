@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/styles/jquery.lineProgressbar.css">
+    <link rel="stylesheet" href="/public/styles/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>I WANT OUT</h1>
+            <p>I WANT OUT is an app for those who want to move but don't know where. Search the location you consider moving to, and a list of quality of life scores will be shown! Can't decide between two cities? You can compare your options.</p>
+            <p>Find out which city has the best cost of living or startup scene, or calculate your salary based on the city and profession!</p>
+        </header>
+
+        <div class="info-container clearfix">
+            <div class="aside" id="first-aside">
+                <form action="" class="second-search">
+                    <label for="secondLocation">Compare City</label>
+                    <input id="secondTextField" type="text" name="secondLocation">
+                    <input type="submit" class="second-submit">
+                </form>
+                <div class="sub-info-container">
+                    <ul class="score2">
+                    
+                    </ul>
+                </div>
+            </div>
+            <div class="aside" id="second-aside">
+                <form action="" class="main-search">
+                    <label for="location">Search City</label>
+                    <input id="searchTextField" type="text" name="location" placeholder="Anything you want!">
+                    <input type="submit" class="main-submit">
+                </form>
+                <div class="sub-info-container" id="one">
+                    <ul class="city-score">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="link-container">
+            <div class="compare-link-container">
+                <button class="compare-link">compare another city</button>
+            </div>
+            <div class="refresh-link-container">
+                <a href="#">Compare Again</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <!-- Google Maps API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClRkdjAdcw7VsDC1aLIqI15LpcfG-ghSE&libraries=places"></script>
+    <!-- Progress Bar -->
+    <script src="/public/scripts/jquery.lineProgressbar.js"></script>
+    <!-- Local Scripts File -->
+    <script src="/public/scripts/main.js"></script>
+</body>
+</html>
